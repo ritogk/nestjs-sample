@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
-import { TodosService } from '@/todos/todos.service'
+import { TodosService } from '@/core/todos/todos.service'
 import { TodosModel } from '@/models/todos.model'
 
-import { CreateTodoInput } from '@/todos/dto/create-todo.input'
-import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
-import { CreateTodoRes } from '@/todos/dto/create-todo.res'
-import { GetTodosRes } from '@/todos/dto/get-todos.res'
+import { CreateTodoInput } from '@/core/todos/dto/create-todo.input'
+import { UpdateTodoInput } from '@/core/todos/dto/update-todo.input'
+import { CreateTodoRes } from '@/core/todos/dto/create-todo.res'
+import { GetTodosRes } from '@/core/todos/dto/get-todos.res'
 import { DeleteResult, UpdateResult } from 'typeorm'
 import { ApiTags, ApiProduces, ApiOperation, ApiResponse } from '@nestjs/swagger'
 

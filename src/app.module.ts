@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
 import { AppService } from './app.service'
-import { CatsModule } from './cats/cats.module'
+import { CatsModule } from './core/cats/cats.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { TodosModule } from '@/todos/todos.module'
-import { FileModule } from '@/file/file.module'
+import { TodosModule } from '@/core/todos/todos.module'
+import { FileModule } from '@/core/file/file.module'
 import { DATABASE_CONFIG } from '@/config/database.config'
 
 @Module({

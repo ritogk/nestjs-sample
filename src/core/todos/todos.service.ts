@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, DeleteResult, UpdateResult } from 'typeorm'
 import { TodosModel } from '@/models/todos.model'
 
-import { CreateTodoInput } from '@/todos/dto/create-todo.input'
-import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
+import { CreateTodoInput } from '@/core/todos/dto/create-todo.input'
+import { UpdateTodoInput } from '@/core/todos/dto/update-todo.input'
 
 @Injectable()
 export class TodosService {

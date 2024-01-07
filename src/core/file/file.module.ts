@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 
-import { FileController } from '@/file/file.controller'
+import { FileController } from './file.controller'
 
 @Module({
   imports: [],
