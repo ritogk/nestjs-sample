@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { Repository, DeleteResult, InsertResult, UpdateResult } from 'typeorm'
-import { TodosModel } from '@/todos/entities/todos.entity'
+import { Repository, DeleteResult, UpdateResult } from 'typeorm'
+import { TodosModel } from '@/todos/entities/todos.model'
 
 import { CreateTodoInput } from '@/todos/dto/create-todo.input'
 import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
@@ -18,9 +18,10 @@ export class TodosService {
     return selectedTodos
   }
 
-  async createTodo(input: CreateTodoInput): Promise<InsertResult> {
-    const createdTodos = await this.todosRepository.insert(input)
-    return createdTodos
+  async createTodo(input: CreateTodoInput): Promise<TodosModel> {
+    const insertResult = await this.todosRepository.insert(input)
+    console.log(insertResult.identifiers[0].id)
+    return this.todosRepository.findOne({ where: { id: insertResult.identifiers[0].id } })
   }
 
   async updateTodo(input: UpdateTodoInput): Promise<UpdateResult> {

@@ -3,6 +3,7 @@ import { AppService } from './app.service'
 import { CatsModule } from './cats/cats.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { TodosModule } from '@/todos/todos.module'
+import { FileModule } from '@/file/file.module'
 import { DATABASE_CONFIG } from '@/config/database.config'
 
 @Module({
@@ -20,6 +21,7 @@ import { DATABASE_CONFIG } from '@/config/database.config'
       logging: true,
     }),
     TodosModule,
+    FileModule,
   ],
   controllers: [],
   providers: [AppService],
