@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
-import { TodosService } from '@/services/todos.service'
-import { TodosModel } from '@/models/todos.model'
+import { TodosService } from '@/todos/todos.service'
+import { TodosModel } from '@/todos/entities/todos.model'
 
-import { CreateTodoInput } from '@/dto/create-todo.input'
-import { UpdateTodoInput } from '@/dto/update-todo.input'
+import { CreateTodoInput } from '@/todos/dto/create-todo.input'
+import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
 import { DeleteResult, InsertResult, UpdateResult } from 'typeorm'
 
 @Controller('todo')

@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, DeleteResult, InsertResult, UpdateResult } from 'typeorm'
-import { TodosModel } from '@/models/todos.model'
+import { TodosModel } from '@/todos/entities/todos.model'
 
-import { CreateTodoInput } from '@/dto/create-todo.input'
-import { UpdateTodoInput } from '@/dto/update-todo.input'
+import { CreateTodoInput } from '@/todos/dto/create-todo.input'
+import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
 
 @Injectable()
 export class TodosService {

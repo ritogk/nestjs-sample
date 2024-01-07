@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { AppService } from './app.service'
 import { CatsModule } from './cats/cats.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { TodosModule } from '@/modules/todos.module'
+import { TodosModule } from '@/todos/todos.module'
 import { DATABASE_CONFIG } from '@/config/database.config'
 
 @Module({

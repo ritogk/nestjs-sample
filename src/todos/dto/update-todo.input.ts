@@ -1,6 +1,6 @@
 import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
 
-import { TodoStatus } from '@/models/todos.model'
+import { TodoStatus } from '@/todos/entities/todos.model'
 
 export class UpdateTodoInput {
   @IsString()
