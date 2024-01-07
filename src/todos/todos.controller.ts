@@ -1,10 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { TodosService } from '@/todos/todos.service'
-import { TodosModel } from '@/todos/entities/todos.model'
+import { TodosModel } from '@/models/todos.model'
 
 import { CreateTodoInput } from '@/todos/dto/create-todo.input'
 import { UpdateTodoInput } from '@/todos/dto/update-todo.input'
 import { CreateTodoRes } from '@/todos/dto/create-todo.res'
+import { GetTodosRes } from '@/todos/dto/get-todos.res'
 import { DeleteResult, UpdateResult } from 'typeorm'
 import { ApiTags, ApiProduces, ApiOperation, ApiResponse } from '@nestjs/swagger'
 
@@ -14,16 +15,23 @@ export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @Get()
-  // @ApiProduces('application/json; charset=utf-8')
-  // @ApiOperation({ summary: '全体取得API' })
-  // @ApiResponse({
-  //   status: 200,
-  //   description: '登録済メンバー設定を複数返却',
-  //   type: TodosModel,
-  // })
-  async readAllTodos(): Promise<TodosModel[]> {
+  @ApiProduces('application/json; charset=utf-8')
+  @ApiOperation({ summary: '全体取得API' })
+  @ApiResponse({
+    status: 200,
+    description: '全Todoを取得',
+    type: GetTodosRes,
+  })
+  async readAllTodos(): Promise<GetTodosRes> {
     const result = await this.todosService.readAllTodos()
-    return result
+    const todos = result.map((todo: TodosModel) => {
+      return {
+        id: todo.id,
+        title: todo.title,
+        status: todo.status,
+      }
+    })
+    return { todos }
   }
 
   @Post()

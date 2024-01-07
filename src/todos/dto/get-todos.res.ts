@@ -1,7 +1,7 @@
 import { TodoStatus } from '@/models/todos.model'
 import { ApiProperty } from '@nestjs/swagger'
 
-export class CreateTodoRes {
+class Todo {
   @ApiProperty({ example: 'abcdefg', description: 'ID' })
   id: string
 
@@ -10,4 +10,9 @@ export class CreateTodoRes {
 
   @ApiProperty({ example: 'status', description: 'status' })
   status: TodoStatus
+}
+
+export class GetTodosRes {
+  @ApiProperty({ type: [Todo], description: 'List of TODO items' })
+  todos: Todo[]
 }
